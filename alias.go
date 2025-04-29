@@ -7,20 +7,20 @@
 package ghw
 
 import (
-	"github.com/jaypipes/ghw/pkg/accelerator"
-	"github.com/jaypipes/ghw/pkg/baseboard"
-	"github.com/jaypipes/ghw/pkg/bios"
-	"github.com/jaypipes/ghw/pkg/block"
-	"github.com/jaypipes/ghw/pkg/chassis"
-	"github.com/jaypipes/ghw/pkg/cpu"
-	"github.com/jaypipes/ghw/pkg/gpu"
-	"github.com/jaypipes/ghw/pkg/memory"
-	"github.com/jaypipes/ghw/pkg/net"
-	"github.com/jaypipes/ghw/pkg/option"
-	"github.com/jaypipes/ghw/pkg/pci"
-	pciaddress "github.com/jaypipes/ghw/pkg/pci/address"
-	"github.com/jaypipes/ghw/pkg/product"
-	"github.com/jaypipes/ghw/pkg/topology"
+	"github.com/dc3-network/ghw/v99/pkg/accelerator"
+	"github.com/dc3-network/ghw/v99/pkg/baseboard"
+	"github.com/dc3-network/ghw/v99/pkg/bios"
+	"github.com/dc3-network/ghw/v99/pkg/block"
+	"github.com/dc3-network/ghw/v99/pkg/chassis"
+	"github.com/dc3-network/ghw/v99/pkg/cpu"
+	"github.com/dc3-network/ghw/v99/pkg/gpu"
+	"github.com/dc3-network/ghw/v99/pkg/memory"
+	"github.com/dc3-network/ghw/v99/pkg/net"
+	"github.com/dc3-network/ghw/v99/pkg/option"
+	"github.com/dc3-network/ghw/v99/pkg/pci"
+	pciaddress "github.com/dc3-network/ghw/v99/pkg/pci/address"
+	"github.com/dc3-network/ghw/v99/pkg/product"
+	"github.com/dc3-network/ghw/v99/pkg/topology"
 )
 
 type WithOption = option.Option

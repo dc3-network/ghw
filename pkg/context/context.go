@@ -9,8 +9,8 @@ package context
 import (
 	"fmt"
 
-	"github.com/jaypipes/ghw/pkg/option"
-	"github.com/jaypipes/ghw/pkg/snapshot"
+	"github.com/dc3-network/ghw/v99/pkg/option"
+	"github.com/dc3-network/ghw/v99/pkg/snapshot"
 )
 
 // Context contains the merged set of configuration switches that act as an

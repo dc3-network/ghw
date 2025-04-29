@@ -14,10 +14,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/jaypipes/ghw/pkg/cpu"
-	"github.com/jaypipes/ghw/pkg/option"
-	"github.com/jaypipes/ghw/pkg/topology"
-	"github.com/jaypipes/ghw/testdata"
+	"github.com/dc3-network/ghw/v99/pkg/cpu"
+	"github.com/dc3-network/ghw/v99/pkg/option"
+	"github.com/dc3-network/ghw/v99/pkg/topology"
+	"github.com/dc3-network/ghw/v99/testdata"
 )
 
 // nolint: gocyclo

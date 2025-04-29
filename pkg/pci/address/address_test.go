@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	pciaddr "github.com/jaypipes/ghw/pkg/pci/address"
+	pciaddr "github.com/dc3-network/ghw/v99/pkg/pci/address"
 )
 
 func TestPCIAddressFromString(t *testing.T) {

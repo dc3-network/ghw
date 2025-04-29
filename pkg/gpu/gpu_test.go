@@ -11,8 +11,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/jaypipes/ghw/pkg/gpu"
-	"github.com/jaypipes/ghw/testdata"
+	"github.com/dc3-network/ghw/v99/pkg/gpu"
+	"github.com/dc3-network/ghw/v99/testdata"
 )
 
 func TestGPU(t *testing.T) {

@@ -6,8 +6,8 @@
 package accelerator
 
 import (
-	"github.com/jaypipes/ghw/pkg/context"
-	"github.com/jaypipes/ghw/pkg/pci"
+	"github.com/dc3-network/ghw/v99/pkg/context"
+	"github.com/dc3-network/ghw/v99/pkg/pci"
 )
 
 // PCI IDs list available at https://admin.pci-ids.ucw.cz/read/PD

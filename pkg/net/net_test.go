@@ -10,7 +10,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/jaypipes/ghw/pkg/net"
+	"github.com/dc3-network/ghw/v99/pkg/net"
 )
 
 func TestNet(t *testing.T) {

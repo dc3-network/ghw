@@ -6,7 +6,7 @@
 package product
 
 import (
-	"github.com/jaypipes/ghw/pkg/linuxdmi"
+	"github.com/dc3-network/ghw/v99/pkg/linuxdmi"
 )
 
 func (i *Info) load() error {

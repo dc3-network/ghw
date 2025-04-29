@@ -13,11 +13,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/jaypipes/ghw/pkg/context"
-	"github.com/jaypipes/ghw/pkg/cpu"
-	"github.com/jaypipes/ghw/pkg/marshal"
-	"github.com/jaypipes/ghw/pkg/memory"
-	"github.com/jaypipes/ghw/pkg/option"
+	"github.com/dc3-network/ghw/v99/pkg/context"
+	"github.com/dc3-network/ghw/v99/pkg/cpu"
+	"github.com/dc3-network/ghw/v99/pkg/marshal"
+	"github.com/dc3-network/ghw/v99/pkg/memory"
+	"github.com/dc3-network/ghw/v99/pkg/option"
 )
 
 // Architecture describes the overall hardware architecture. It can be either

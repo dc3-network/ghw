@@ -8,7 +8,7 @@
 package main
 
 import (
-	"github.com/jaypipes/ghw/cmd/ghw-snapshot/command"
+	"github.com/dc3-network/ghw/v99/cmd/ghw-snapshot/command"
 )
 
 func main() {

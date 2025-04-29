@@ -1,4 +1,4 @@
-module github.com/jaypipes/ghw/v99
+module github.com/dc3-network/ghw/v99
 
 go 1.21
 
@@ -14,9 +14,7 @@ require (
 require (
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	github.com/kr/pretty v0.1.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	golang.org/x/sys v0.1.0 // indirect
-	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 )

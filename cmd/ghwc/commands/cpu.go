@@ -11,7 +11,7 @@ import (
 	"math"
 	"strings"
 
-	"github.com/jaypipes/ghw"
+	"github.com/dc3-network/ghw/v99"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )

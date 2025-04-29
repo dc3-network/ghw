@@ -12,10 +12,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/jaypipes/ghw/pkg/context"
-	"github.com/jaypipes/ghw/pkg/cpu"
-	"github.com/jaypipes/ghw/pkg/linuxpath"
-	"github.com/jaypipes/ghw/pkg/memory"
+	"github.com/dc3-network/ghw/v99/pkg/context"
+	"github.com/dc3-network/ghw/v99/pkg/cpu"
+	"github.com/dc3-network/ghw/v99/pkg/linuxpath"
+	"github.com/dc3-network/ghw/v99/pkg/memory"
 )
 
 func (i *Info) load() error {

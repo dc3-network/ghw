@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/jaypipes/ghw/pkg/context"
-	"github.com/jaypipes/ghw/pkg/linuxpath"
-	"github.com/jaypipes/ghw/pkg/util"
+	"github.com/dc3-network/ghw/v99/pkg/context"
+	"github.com/dc3-network/ghw/v99/pkg/linuxpath"
+	"github.com/dc3-network/ghw/v99/pkg/util"
 )
 
 func Item(ctx *context.Context, value string) string {

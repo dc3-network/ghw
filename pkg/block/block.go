@@ -13,11 +13,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/jaypipes/ghw/pkg/context"
-	"github.com/jaypipes/ghw/pkg/marshal"
-	"github.com/jaypipes/ghw/pkg/option"
-	"github.com/jaypipes/ghw/pkg/unitutil"
-	"github.com/jaypipes/ghw/pkg/util"
+	"github.com/dc3-network/ghw/v99/pkg/context"
+	"github.com/dc3-network/ghw/v99/pkg/marshal"
+	"github.com/dc3-network/ghw/v99/pkg/option"
+	"github.com/dc3-network/ghw/v99/pkg/unitutil"
+	"github.com/dc3-network/ghw/v99/pkg/util"
 )
 
 // DriveType describes the general category of drive device

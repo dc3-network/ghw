@@ -13,7 +13,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/jaypipes/ghw/pkg/option"
+	"github.com/dc3-network/ghw/v99/pkg/option"
 )
 
 const (

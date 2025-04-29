@@ -9,21 +9,21 @@ package ghw
 import (
 	"fmt"
 
-	"github.com/jaypipes/ghw/pkg/context"
+	"github.com/dc3-network/ghw/v99/pkg/context"
 
-	"github.com/jaypipes/ghw/pkg/accelerator"
-	"github.com/jaypipes/ghw/pkg/baseboard"
-	"github.com/jaypipes/ghw/pkg/bios"
-	"github.com/jaypipes/ghw/pkg/block"
-	"github.com/jaypipes/ghw/pkg/chassis"
-	"github.com/jaypipes/ghw/pkg/cpu"
-	"github.com/jaypipes/ghw/pkg/gpu"
-	"github.com/jaypipes/ghw/pkg/marshal"
-	"github.com/jaypipes/ghw/pkg/memory"
-	"github.com/jaypipes/ghw/pkg/net"
-	"github.com/jaypipes/ghw/pkg/pci"
-	"github.com/jaypipes/ghw/pkg/product"
-	"github.com/jaypipes/ghw/pkg/topology"
+	"github.com/dc3-network/ghw/v99/pkg/accelerator"
+	"github.com/dc3-network/ghw/v99/pkg/baseboard"
+	"github.com/dc3-network/ghw/v99/pkg/bios"
+	"github.com/dc3-network/ghw/v99/pkg/block"
+	"github.com/dc3-network/ghw/v99/pkg/chassis"
+	"github.com/dc3-network/ghw/v99/pkg/cpu"
+	"github.com/dc3-network/ghw/v99/pkg/gpu"
+	"github.com/dc3-network/ghw/v99/pkg/marshal"
+	"github.com/dc3-network/ghw/v99/pkg/memory"
+	"github.com/dc3-network/ghw/v99/pkg/net"
+	"github.com/dc3-network/ghw/v99/pkg/pci"
+	"github.com/dc3-network/ghw/v99/pkg/product"
+	"github.com/dc3-network/ghw/v99/pkg/topology"
 )
 
 // HostInfo is a wrapper struct containing information about the host system's
