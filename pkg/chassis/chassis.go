@@ -57,12 +57,12 @@ var (
 // Info defines chassis release information
 type Info struct {
 	ctx             *context.Context
-	AssetTag        string `json:"asset_tag"`
-	SerialNumber    string `json:"serial_number"`
-	Type            string `json:"type"`
-	TypeDescription string `json:"type_description"`
-	Vendor          string `json:"vendor"`
-	Version         string `json:"version"`
+	AssetTag        string `json:"asset_tag,omitempty"`
+	SerialNumber    string `json:"serial_number,omitempty"`
+	Type            string `json:"type,omitempty"`
+	TypeDescription string `json:"type_description,omitempty"`
+	Vendor          string `json:"vendor,omitempty"`
+	Version         string `json:"version,omitempty"`
 }
 
 func (i *Info) String() string {
@@ -101,7 +101,7 @@ func New(opts ...*option.Option) (*Info, error) {
 // simple private struct used to encapsulate chassis information in a top-level
 // "chassis" YAML/JSON map/object key
 type chassisPrinter struct {
-	Info *Info `json:"chassis"`
+	Info *Info `json:"chassis,omitempty"`
 }
 
 // YAMLString returns a string with the chassis information formatted as YAML

@@ -16,13 +16,13 @@ import (
 // Info defines product information
 type Info struct {
 	ctx          *context.Context
-	Family       string `json:"family"`
-	Name         string `json:"name"`
-	Vendor       string `json:"vendor"`
-	SerialNumber string `json:"serial_number"`
-	UUID         string `json:"uuid"`
-	SKU          string `json:"sku"`
-	Version      string `json:"version"`
+	Family       string `json:"family,omitempty"`
+	Name         string `json:"name,omitempty"`
+	Vendor       string `json:"vendor,omitempty"`
+	SerialNumber string `json:"serial_number,omitempty"`
+	UUID         string `json:"uuid,omitempty"`
+	SKU          string `json:"sku,omitempty"`
+	Version      string `json:"version,omitempty"`
 }
 
 func (i *Info) String() string {
@@ -80,7 +80,7 @@ func New(opts ...*option.Option) (*Info, error) {
 // simple private struct used to encapsulate product information in a top-level
 // "product" YAML/JSON map/object key
 type productPrinter struct {
-	Info *Info `json:"product"`
+	Info *Info `json:"product,omitempty"`
 }
 
 // YAMLString returns a string with the product information formatted as YAML

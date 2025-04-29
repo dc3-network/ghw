@@ -30,18 +30,18 @@ import (
 // memory, block storage, CPU, etc
 type HostInfo struct {
 	ctx         *context.Context
-	Memory      *memory.Info      `json:"memory"`
-	Block       *block.Info       `json:"block"`
-	CPU         *cpu.Info         `json:"cpu"`
-	Topology    *topology.Info    `json:"topology"`
-	Network     *net.Info         `json:"network"`
-	GPU         *gpu.Info         `json:"gpu"`
-	Accelerator *accelerator.Info `json:"accelerator"`
-	Chassis     *chassis.Info     `json:"chassis"`
-	BIOS        *bios.Info        `json:"bios"`
-	Baseboard   *baseboard.Info   `json:"baseboard"`
-	Product     *product.Info     `json:"product"`
-	PCI         *pci.Info         `json:"pci"`
+	Memory      *memory.Info      `json:"memory,omitempty"`
+	Block       *block.Info       `json:"block,omitempty"`
+	CPU         *cpu.Info         `json:"cpu,omitempty"`
+	Topology    *topology.Info    `json:"topology,omitempty"`
+	Network     *net.Info         `json:"network,omitempty"`
+	GPU         *gpu.Info         `json:"gpu,omitempty"`
+	Accelerator *accelerator.Info `json:"accelerator,omitempty"`
+	Chassis     *chassis.Info     `json:"chassis,omitempty"`
+	BIOS        *bios.Info        `json:"bios,omitempty"`
+	Baseboard   *baseboard.Info   `json:"baseboard,omitempty"`
+	Product     *product.Info     `json:"product,omitempty"`
+	PCI         *pci.Info         `json:"pci,omitempty"`
 }
 
 // Host returns a pointer to a HostInfo struct that contains fields with

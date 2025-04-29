@@ -18,14 +18,14 @@ import (
 
 type GraphicsCard struct {
 	// the PCI address where the graphics card can be found
-	Address string `json:"address"`
+	Address string `json:"address,omitempty"`
 	// The "index" of the card on the bus (generally not useful information,
 	// but might as well include it)
-	Index int `json:"index"`
+	Index int `json:"index,omitempty"`
 	// pointer to a PCIDevice struct that describes the vendor and product
 	// model, etc
 	// TODO(jaypipes): Rename this field to PCI, instead of DeviceInfo
-	DeviceInfo *pci.Device `json:"pci"`
+	DeviceInfo *pci.Device `json:"pci,omitempty"`
 	// Topology node that the graphics card is affined to. Will be nil if the
 	// architecture is not NUMA.
 	Node *topology.Node `json:"node,omitempty"`
@@ -50,7 +50,7 @@ func (card *GraphicsCard) String() string {
 
 type Info struct {
 	ctx           *context.Context
-	GraphicsCards []*GraphicsCard `json:"cards"`
+	GraphicsCards []*GraphicsCard `json:"cards,omitempty"`
 }
 
 // New returns a pointer to an Info struct that contains information about the
@@ -79,7 +79,7 @@ func (i *Info) String() string {
 // simple private struct used to encapsulate gpu information in a top-level
 // "gpu" YAML/JSON map/object key
 type gpuPrinter struct {
-	Info *Info `json:"gpu"`
+	Info *Info `json:"gpu,omitempty"`
 }
 
 // YAMLString returns a string with the gpu information formatted as YAML

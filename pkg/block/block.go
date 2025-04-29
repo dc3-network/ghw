@@ -206,45 +206,45 @@ func (sc StorageController) MarshalJSON() ([]byte, error) {
 // raw block storage resources.
 type Disk struct {
 	// Name contains a short name for the disk, e.g. `sda`
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// SizeBytes contains the total amount of storage, in bytes, for this disk
-	SizeBytes uint64 `json:"size_bytes"`
+	SizeBytes uint64 `json:"size_bytes,omitempty"`
 	// PhysicalBlockSizeBytes is the size, in bytes, of the physical blocks in
 	// this disk. This is typically the minimum amount of data that can be
 	// written to a disk in a single write operation.
-	PhysicalBlockSizeBytes uint64 `json:"physical_block_size_bytes"`
+	PhysicalBlockSizeBytes uint64 `json:"physical_block_size_bytes,omitempty"`
 	// DriveType is the category of disk drive for this disk.
-	DriveType DriveType `json:"drive_type"`
+	DriveType DriveType `json:"drive_type,omitempty"`
 	// IsRemovable indicates if the disk drive is removable.
-	IsRemovable bool `json:"removable"`
+	IsRemovable bool `json:"removable,omitempty"`
 	// StorageController is the category of storage controller used by the
 	// disk.
-	StorageController StorageController `json:"storage_controller"`
+	StorageController StorageController `json:"storage_controller,omitempty"`
 	// BusPath is the filepath to the bus for this disk.
-	BusPath string `json:"bus_path"`
+	BusPath string `json:"bus_path,omitempty"`
 	// NUMANodeID contains the numeric index (0-based) of the NUMA Node this
 	// disk is affined to, or -1 if the host system is non-NUMA.
 	// TODO(jaypipes): Convert this to a TopologyNode struct pointer and then
 	// add to serialized output as "numa_node,omitempty"
 	NUMANodeID int `json:"-"`
 	// Vendor is the manufacturer of the disk.
-	Vendor string `json:"vendor"`
+	Vendor string `json:"vendor,omitempty"`
 	// Model is the model number of the disk.
-	Model string `json:"model"`
+	Model string `json:"model,omitempty"`
 	// SerialNumber is the serial number of the disk.
-	SerialNumber string `json:"serial_number"`
+	SerialNumber string `json:"serial_number,omitempty"`
 	// WWN is the World-wide Name of the disk.
 	// See: https://en.wikipedia.org/wiki/World_Wide_Name
-	WWN string `json:"wwn"`
+	WWN string `json:"wwn,omitempty"`
 	// WWNNoExtension is the World-wide Name of the disk with any vendor
 	// extensions excluded.
 	// See: https://en.wikipedia.org/wiki/World_Wide_Name
-	WWNNoExtension string `json:"wwnNoExtension"`
+	WWNNoExtension string `json:"wwnNoExtension,omitempty"`
 	// Partitions contains an array of pointers to `Partition` structs, one for
 	// each partition on the disk.
-	Partitions []*Partition `json:"partitions"`
+	Partitions []*Partition `json:"partitions,omitempty"`
 	// TODO(jaypipes): Add PCI field for accessing PCI device information
-	// PCI *PCIDevice `json:"pci"`
+	// PCI *PCIDevice `json:"pci,omitempty"`
 }
 
 // Partition describes a logical division of a Disk.
@@ -252,26 +252,26 @@ type Partition struct {
 	// Disk is a pointer to the `Disk` struct that houses this partition.
 	Disk *Disk `json:"-"`
 	// Name is the system name given to the partition, e.g. "sda1".
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// Label is the human-readable label given to the partition. On Linux, this
 	// is derived from the `ID_PART_ENTRY_NAME` udev entry.
-	Label string `json:"label"`
+	Label string `json:"label,omitempty"`
 	// MountPoint is the path where this partition is mounted.
-	MountPoint string `json:"mount_point"`
+	MountPoint string `json:"mount_point,omitempty"`
 	// SizeBytes contains the total amount of storage, in bytes, this partition
 	// can consume.
-	SizeBytes uint64 `json:"size_bytes"`
+	SizeBytes uint64 `json:"size_bytes,omitempty"`
 	// Type contains the type of the partition.
-	Type string `json:"type"`
+	Type string `json:"type,omitempty"`
 	// IsReadOnly indicates if the partition is marked read-only.
-	IsReadOnly bool `json:"read_only"`
+	IsReadOnly bool `json:"read_only,omitempty"`
 	// UUID is a unique identifier for the partition. Note that for Windows
 	// partitions, this field contains a Volume Serial Number which is not
 	// in the standard UUID format, e.g. "A8C3D032".
-	UUID string `json:"uuid"`
+	UUID string `json:"uuid,omitempty"`
 	// FilesystemLabel is the label of the filesystem contained on the
 	// partition. On Linux, this is derived from the `ID_FS_NAME` udev entry.
-	FilesystemLabel string `json:"filesystem_label"`
+	FilesystemLabel string `json:"filesystem_label,omitempty"`
 }
 
 // Info describes all disk drives and partitions in the host system.
@@ -279,12 +279,12 @@ type Info struct {
 	ctx *context.Context
 	// TotalSizeBytes contains the total amount of storage, in bytes, on the
 	// host system.
-	TotalSizeBytes uint64 `json:"total_size_bytes"`
+	TotalSizeBytes uint64 `json:"total_size_bytes,omitempty"`
 	// DEPRECATED: Please use TotalSizeBytes
 	TotalPhysicalBytes uint64 `json:"-"`
 	// Disks contains an array of pointers to `Disk` structs, one for each disk
 	// drive on the host system.
-	Disks []*Disk `json:"disks"`
+	Disks []*Disk `json:"disks,omitempty"`
 	// Partitions contains an array of pointers to `Partition` structs, one for
 	// each partition on any disk drive on the host system.
 	Partitions []*Partition `json:"-"`
