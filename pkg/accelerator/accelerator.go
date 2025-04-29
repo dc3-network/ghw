@@ -17,10 +17,10 @@ import (
 
 type AcceleratorDevice struct {
 	// the PCI address where the accelerator device can be found
-	Address string `json:"address"`
+	Address string `json:"address,omitempty"`
 	// pointer to a PCIDevice struct that describes the vendor and product
 	// model, etc
-	PCIDevice *pci.Device `json:"pci_device"`
+	PCIDevice *pci.Device `json:"pci_device,omitempty"`
 }
 
 func (dev *AcceleratorDevice) String() string {
@@ -38,7 +38,7 @@ func (dev *AcceleratorDevice) String() string {
 
 type Info struct {
 	ctx     *context.Context
-	Devices []*AcceleratorDevice `json:"devices"`
+	Devices []*AcceleratorDevice `json:"devices,omitempty"`
 }
 
 // New returns a pointer to an Info struct that contains information about the
@@ -68,7 +68,7 @@ func (i *Info) String() string {
 // simple private struct used to encapsulate processing accelerators information in a top-level
 // "accelerator" YAML/JSON map/object key
 type acceleratorPrinter struct {
-	Info *Info `json:"accelerator"`
+	Info *Info `json:"accelerator,omitempty"`
 }
 
 // YAMLString returns a string with the processing accelerators information formatted as YAML

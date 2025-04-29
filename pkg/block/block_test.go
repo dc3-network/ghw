@@ -102,7 +102,7 @@ func TestBlockMarshalUnmarshal(t *testing.T) {
 }
 
 type blockData struct {
-	Block block.Info `json:"block"`
+	Block block.Info `json:"block,omitempty"`
 }
 
 func TestBlockUnmarshal(t *testing.T) {

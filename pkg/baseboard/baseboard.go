@@ -16,11 +16,11 @@ import (
 // Info defines baseboard release information
 type Info struct {
 	ctx          *context.Context
-	AssetTag     string `json:"asset_tag"`
-	SerialNumber string `json:"serial_number"`
-	Vendor       string `json:"vendor"`
-	Version      string `json:"version"`
-	Product      string `json:"product"`
+	AssetTag     string `json:"asset_tag,omitempty"`
+	SerialNumber string `json:"serial_number,omitempty"`
+	Vendor       string `json:"vendor,omitempty"`
+	Version      string `json:"version,omitempty"`
+	Product      string `json:"product,omitempty"`
 }
 
 func (i *Info) String() string {
@@ -64,7 +64,7 @@ func New(opts ...*option.Option) (*Info, error) {
 // simple private struct used to encapsulate baseboard information in a top-level
 // "baseboard" YAML/JSON map/object key
 type baseboardPrinter struct {
-	Info *Info `json:"baseboard"`
+	Info *Info `json:"baseboard,omitempty"`
 }
 
 // YAMLString returns a string with the baseboard information formatted as YAML

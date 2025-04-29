@@ -118,15 +118,15 @@ type Cache struct {
 	// of this cache to processing cores on the physical package. Lower numbers
 	// are "closer" to the processing cores and therefore have faster access
 	// times.
-	Level uint8 `json:"level"`
+	Level uint8 `json:"level,omitempty"`
 	// Type indicates what type of memory is stored in the cache. Can be
 	// instruction (executable bytecodes), data or both.
-	Type CacheType `json:"type"`
+	Type CacheType `json:"type,omitempty"`
 	// SizeBytes indicates the size of the cache in bytes.
-	SizeBytes uint64 `json:"size_bytes"`
+	SizeBytes uint64 `json:"size_bytes,omitempty"`
 	// The set of logical processors (hardware threads) that have access to
 	// this cache.
-	LogicalProcessors []uint32 `json:"logical_processors"`
+	LogicalProcessors []uint32 `json:"logical_processors,omitempty"`
 }
 
 func (c *Cache) String() string {

@@ -90,11 +90,11 @@ func (a *Architecture) UnmarshalJSON(b []byte) error {
 // memory caching available to the single physical processor package's physical
 // processor cores
 type Node struct {
-	ID        int                  `json:"id"`
-	Cores     []*cpu.ProcessorCore `json:"cores"`
-	Caches    []*memory.Cache      `json:"caches"`
-	Distances []int                `json:"distances"`
-	Memory    *memory.Area         `json:"memory"`
+	ID        int                  `json:"id,omitempty"`
+	Cores     []*cpu.ProcessorCore `json:"cores,omitempty"`
+	Caches    []*memory.Cache      `json:"caches,omitempty"`
+	Distances []int                `json:"distances,omitempty"`
+	Memory    *memory.Area         `json:"memory,omitempty"`
 }
 
 func (n *Node) String() string {
@@ -108,8 +108,8 @@ func (n *Node) String() string {
 // Info describes the system topology for the host hardware
 type Info struct {
 	ctx          *context.Context
-	Architecture Architecture `json:"architecture"`
-	Nodes        []*Node      `json:"nodes"`
+	Architecture Architecture `json:"architecture,omitempty"`
+	Nodes        []*Node      `json:"nodes,omitempty"`
 }
 
 // New returns a pointer to an Info struct that contains information about the
@@ -149,7 +149,7 @@ func (i *Info) String() string {
 // simple private struct used to encapsulate topology information in a
 // top-level "topology" YAML/JSON map/object key
 type topologyPrinter struct {
-	Info *Info `json:"topology"`
+	Info *Info `json:"topology,omitempty"`
 }
 
 // YAMLString returns a string with the topology information formatted as YAML

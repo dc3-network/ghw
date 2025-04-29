@@ -19,37 +19,37 @@ import (
 type NICCapability struct {
 	// Name is the string name for the capability, e.g.
 	// "tcp-segmentation-offload"
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// IsEnabled is true if the capability is currently enabled on the NIC,
 	// false otherwise.
-	IsEnabled bool `json:"is_enabled"`
+	IsEnabled bool `json:"is_enabled,omitempty"`
 	// CanEnable is true if the capability can be enabled on the NIC, false
 	// otherwise.
-	CanEnable bool `json:"can_enable"`
+	CanEnable bool `json:"can_enable,omitempty"`
 }
 
 // NIC contains information about a single Network Interface Controller (NIC).
 type NIC struct {
 	// Name is the string identifier the system gave this NIC.
-	Name string `json:"name"`
+	Name string `json:"name,omitempty"`
 	// MACAddress is the Media Access Control (MAC) address of this NIC.
-	MACAddress string `json:"mac_address"`
+	MACAddress string `json:"mac_address,omitempty"`
 	// DEPRECATED: Please use MACAddress instead.
 	MacAddress string `json:"-"`
 	// IsVirtual is true if the NIC is entirely virtual/emulated, false
 	// otherwise.
-	IsVirtual bool `json:"is_virtual"`
+	IsVirtual bool `json:"is_virtual,omitempty"`
 	// Capabilities is a slice of pointers to `NICCapability` structs
 	// describing a feature/capability of this NIC.
-	Capabilities []*NICCapability `json:"capabilities"`
+	Capabilities []*NICCapability `json:"capabilities,omitempty"`
 	// PCIAddress is a pointer to the PCI address for this NIC, or nil if there
 	// is no PCI address for this NIC.
 	PCIAddress *string `json:"pci_address,omitempty"`
 	// Speed is a string describing the link speed of this NIC, e.g. "1000Mb/s"
-	Speed string `json:"speed"`
+	Speed string `json:"speed,omitempty"`
 	// Duplex is a string indicating the current duplex setting of this NIC,
 	// e.g. "Full"
-	Duplex string `json:"duplex"`
+	Duplex string `json:"duplex,omitempty"`
 	// SupportedLinkModes is a slice of strings containing the supported link
 	// modes of this NIC, e.g. "10baseT/Half", "1000baseT/Full", etc.
 	SupportedLinkModes []string `json:"supported_link_modes,omitempty"`
@@ -98,7 +98,7 @@ type Info struct {
 	ctx *context.Context
 	// NICs is a slice of pointers to `NIC` structs describing the network
 	// interface controllers (NICs) on the host system.
-	NICs []*NIC `json:"nics"`
+	NICs []*NIC `json:"nics,omitempty"`
 }
 
 // New returns a pointer to an Info struct that contains information about the
@@ -124,7 +124,7 @@ func (i *Info) String() string {
 // simple private struct used to encapsulate net information in a
 // top-level "net" YAML/JSON map/object key
 type netPrinter struct {
-	Info *Info `json:"network"`
+	Info *Info `json:"network,omitempty"`
 }
 
 // YAMLString returns a string with the net information formatted as YAML

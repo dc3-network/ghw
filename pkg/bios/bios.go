@@ -18,9 +18,9 @@ import (
 // Info defines BIOS release information
 type Info struct {
 	ctx     *context.Context
-	Vendor  string `json:"vendor"`
-	Version string `json:"version"`
-	Date    string `json:"date"`
+	Vendor  string `json:"vendor,omitempty"`
+	Version string `json:"version,omitempty"`
+	Date    string `json:"date,omitempty"`
 }
 
 func (i *Info) String() string {
@@ -61,7 +61,7 @@ func New(opts ...*option.Option) (*Info, error) {
 // simple private struct used to encapsulate BIOS information in a top-level
 // "bios" YAML/JSON map/object key
 type biosPrinter struct {
-	Info *Info `json:"bios"`
+	Info *Info `json:"bios,omitempty"`
 }
 
 // YAMLString returns a string with the BIOS information formatted as YAML

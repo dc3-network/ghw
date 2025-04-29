@@ -22,18 +22,18 @@ type ProcessorCore struct {
 	// this does *not* necessarily equate to a zero-based index of the core
 	// within a physical package. For example, the core IDs for an Intel Core
 	// i7 are 0, 1, 2, 8, 9, and 10
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 	// TotalHardwareThreads is the number of hardware threads associated with
 	// the core
-	TotalHardwareThreads uint32 `json:"total_hardware_threads"`
+	TotalHardwareThreads uint32 `json:"total_hardware_threads,omitempty"`
 	// NumThreads is the number of hardware threads associated with the core.
 	// DEPRECATED: Use `TotalHardwareThreads` instead.
-	NumThreads uint32 `json:"total_threads"`
+	NumThreads uint32 `json:"total_threads,omitempty"`
 	// LogicalProcessors is a slice of ints representing the logical processor
 	// IDs assigned to any processing unit for the core. These are sometimes
 	// called the "thread siblings". Logical processor IDs are the *zero-based*
 	// index of the processor on the host and are *not* related to the core ID.
-	LogicalProcessors []int `json:"logical_processors"`
+	LogicalProcessors []int `json:"logical_processors,omitempty"`
 }
 
 // String returns a short string indicating important information about the
@@ -50,28 +50,28 @@ func (c *ProcessorCore) String() string {
 // Processor describes a physical host central processing unit (CPU).
 type Processor struct {
 	// ID is the physical processor `uint32` ID according to the system
-	ID int `json:"id"`
+	ID int `json:"id,omitempty"`
 	// TotalCores is the number of physical cores in the processor package
-	TotalCores uint32 `json:"total_cores"`
+	TotalCores uint32 `json:"total_cores,omitempty"`
 	// NumCores is the number of physical cores in the processor package
 	// DEPRECATED: Use `TotalCores` instead.
 	NumCores uint32 `json:"-"`
 	// TotalHardwareThreads is the number of hardware threads associated with
 	// the processor package
-	TotalHardwareThreads uint32 `json:"total_hardware_threads"`
+	TotalHardwareThreads uint32 `json:"total_hardware_threads,omitempty"`
 	// NumThreads is the number of hardware threads in the processor package
 	// DEPRECATED: Use `TotalHardwareThreads` instead.
-	NumThreads uint32 `json:"total_threads"`
+	NumThreads uint32 `json:"total_threads,omitempty"`
 	// Vendor is a string containing the vendor name
-	Vendor string `json:"vendor"`
+	Vendor string `json:"vendor,omitempty"`
 	// Model` is a string containing the vendor's model name
-	Model string `json:"model"`
+	Model string `json:"model,omitempty"`
 	// Capabilities is a slice of strings indicating the features the processor
 	// has enabled
-	Capabilities []string `json:"capabilities"`
+	Capabilities []string `json:"capabilities,omitempty"`
 	// Cores is a slice of ProcessorCore` struct pointers that are packed onto
 	// this physical processor
-	Cores []*ProcessorCore `json:"cores"`
+	Cores []*ProcessorCore `json:"cores,omitempty"`
 }
 
 // CoreByID returns the ProcessorCore having the supplied ID.
@@ -125,17 +125,17 @@ type Info struct {
 	ctx *context.Context
 	// TotalCores is the total number of physical cores the host system
 	// contains
-	TotalCores uint32 `json:"total_cores"`
+	TotalCores uint32 `json:"total_cores,omitempty"`
 	// TotalThreads is the total number of hardware threads the host system
 	// contains
-	TotalHardwareThreads uint32 `json:"total_hardware_threads"`
+	TotalHardwareThreads uint32 `json:"total_hardware_threads,omitempty"`
 	// TotalThreads is the total number of hardware threads the host system
 	// contains
 	// DEPRECATED: Use `TotalHardwareThreads` instead
-	TotalThreads uint32 `json:"total_threads"`
+	TotalThreads uint32 `json:"total_threads,omitempty"`
 	// Processors is a slice of Processor struct pointers, one for each
 	// physical processor package contained in the host
-	Processors []*Processor `json:"processors"`
+	Processors []*Processor `json:"processors,omitempty"`
 }
 
 // New returns a pointer to an Info struct that contains information about the
@@ -177,7 +177,7 @@ func (i *Info) String() string {
 // simple private struct used to encapsulate cpu information in a top-level
 // "cpu" YAML/JSON map/object key
 type cpuPrinter struct {
-	Info *Info `json:"cpu"`
+	Info *Info `json:"cpu,omitempty"`
 }
 
 // YAMLString returns a string with the cpu information formatted as YAML

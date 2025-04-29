@@ -22,20 +22,20 @@ import (
 //
 // See https://en.wikipedia.org/wiki/DIMM
 type Module struct {
-	Label        string `json:"label"`
-	Location     string `json:"location"`
-	SerialNumber string `json:"serial_number"`
-	SizeBytes    int64  `json:"size_bytes"`
-	Vendor       string `json:"vendor"`
+	Label        string `json:"label,omitempty"`
+	Location     string `json:"location,omitempty"`
+	SerialNumber string `json:"serial_number,omitempty"`
+	SizeBytes    int64  `json:"size_bytes,omitempty"`
+	Vendor       string `json:"vendor,omitempty"`
 }
 
 // HugePageAmounts describes huge page info
 type HugePageAmounts struct {
-	Total   int64 `json:"total"`
-	Free    int64 `json:"free"`
-	Surplus int64 `json:"surplus"`
+	Total   int64 `json:"total,omitempty"`
+	Free    int64 `json:"free,omitempty"`
+	Surplus int64 `json:"surplus,omitempty"`
 	// Note: this field will not be populated for Topology call, since data not present in NUMA folder structure
-	Reserved int64 `json:"reserved"`
+	Reserved int64 `json:"reserved,omitempty"`
 }
 
 // Area describes a set of physical memory on a host system. Non-NUMA systems
@@ -43,17 +43,17 @@ type HugePageAmounts struct {
 // system can use. NUMA systems will have multiple memory areas, one or more
 // for each NUMA node/cell in the system.
 type Area struct {
-	TotalPhysicalBytes int64 `json:"total_physical_bytes"`
-	TotalUsableBytes   int64 `json:"total_usable_bytes"`
+	TotalPhysicalBytes int64 `json:"total_physical_bytes,omitempty"`
+	TotalUsableBytes   int64 `json:"total_usable_bytes,omitempty"`
 	// An array of sizes, in bytes, of memory pages supported in this area
-	SupportedPageSizes []uint64 `json:"supported_page_sizes"`
+	SupportedPageSizes []uint64 `json:"supported_page_sizes,omitempty"`
 	// Default system huge page size, in bytes
-	DefaultHugePageSize uint64 `json:"default_huge_page_size"`
+	DefaultHugePageSize uint64 `json:"default_huge_page_size,omitempty"`
 	// Amount of memory, in bytes, consumed by huge pages of all sizes
-	TotalHugePageBytes int64 `json:"total_huge_page_bytes"`
+	TotalHugePageBytes int64 `json:"total_huge_page_bytes,omitempty"`
 	// Huge page info by size
-	HugePageAmountsBySize map[uint64]*HugePageAmounts `json:"huge_page_amounts_by_size"`
-	Modules               []*Module                   `json:"modules"`
+	HugePageAmountsBySize map[uint64]*HugePageAmounts `json:"huge_page_amounts_by_size,omitempty"`
+	Modules               []*Module                   `json:"modules,omitempty"`
 }
 
 // String returns a short string with a summary of information for this memory
@@ -100,7 +100,7 @@ func (i *Info) String() string {
 // simple private struct used to encapsulate memory information in a top-level
 // "memory" YAML/JSON map/object key
 type memoryPrinter struct {
-	Info *Info `json:"memory"`
+	Info *Info `json:"memory,omitempty"`
 }
 
 // YAMLString returns a string with the memory information formatted as YAML

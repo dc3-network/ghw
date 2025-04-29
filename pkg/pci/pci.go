@@ -21,38 +21,38 @@ import (
 
 type Device struct {
 	// The PCI address of the device
-	Address   string         `json:"address"`
-	Vendor    *pcidb.Vendor  `json:"vendor"`
-	Product   *pcidb.Product `json:"product"`
-	Revision  string         `json:"revision"`
-	Subsystem *pcidb.Product `json:"subsystem"`
+	Address   string         `json:"address,omitempty"`
+	Vendor    *pcidb.Vendor  `json:"vendor,omitempty"`
+	Product   *pcidb.Product `json:"product,omitempty"`
+	Revision  string         `json:"revision,omitempty"`
+	Subsystem *pcidb.Product `json:"subsystem,omitempty"`
 	// optional subvendor/sub-device information
-	Class *pcidb.Class `json:"class"`
+	Class *pcidb.Class `json:"class,omitempty"`
 	// optional sub-class for the device
-	Subclass *pcidb.Subclass `json:"subclass"`
+	Subclass *pcidb.Subclass `json:"subclass,omitempty"`
 	// optional programming interface
-	ProgrammingInterface *pcidb.ProgrammingInterface `json:"programming_interface"`
+	ProgrammingInterface *pcidb.ProgrammingInterface `json:"programming_interface,omitempty"`
 	// Topology node that the PCI device is affined to. Will be nil if the
 	// architecture is not NUMA.
 	Node   *topology.Node `json:"node,omitempty"`
-	Driver string         `json:"driver"`
+	Driver string         `json:"driver,omitempty"`
 }
 
 type devIdent struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+	ID   string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
 }
 
 type devMarshallable struct {
-	Driver    string   `json:"driver"`
-	Address   string   `json:"address"`
-	Vendor    devIdent `json:"vendor"`
-	Product   devIdent `json:"product"`
-	Revision  string   `json:"revision"`
-	Subsystem devIdent `json:"subsystem"`
-	Class     devIdent `json:"class"`
-	Subclass  devIdent `json:"subclass"`
-	Interface devIdent `json:"programming_interface"`
+	Driver    string   `json:"driver,omitempty"`
+	Address   string   `json:"address,omitempty"`
+	Vendor    devIdent `json:"vendor,omitempty"`
+	Product   devIdent `json:"product,omitempty"`
+	Revision  string   `json:"revision,omitempty"`
+	Subsystem devIdent `json:"subsystem,omitempty"`
+	Class     devIdent `json:"class,omitempty"`
+	Subclass  devIdent `json:"subclass,omitempty"`
+	Interface devIdent `json:"programming_interface,omitempty"`
 }
 
 // NOTE(jaypipes) Device has a custom JSON marshaller because we don't want
@@ -177,7 +177,7 @@ func (info *Info) lookupDevice(address string) *Device {
 // simple private struct used to encapsulate PCI information in a top-level
 // "pci" YAML/JSON map/object key
 type pciPrinter struct {
-	Info *Info `json:"pci"`
+	Info *Info `json:"pci,omitempty"`
 }
 
 // YAMLString returns a string with the PCI information formatted as YAML
